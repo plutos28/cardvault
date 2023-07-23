@@ -1,3 +1,47 @@
+:root {
+    --primary: rgb(22, 22, 22);
+}
+
+body {
+    font-family: sans-serif;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 8%;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.nav-spacing {
+    padding: 20px 0;
+}
+
+.brand-link {
+    font-weight: bold;
+    font-size: 27px;
+}
+
+.login-link {
+    margin-left: 40px;
+}
+
+.signup-link {
+    background-color: #222;
+    color: white;
+    padding: 10px;
+    border-radius: 22px;
+    margin-left: 40px;
+}
+
+
 h1 {
-    color: red;
+    color: var(--primary);
 }
