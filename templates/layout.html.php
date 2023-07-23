@@ -18,6 +18,7 @@
         </div>
         <div class="nav-right-side nav-spacing">
             <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]) : ?>
+                <a style="text-decoration: underline; text-transform: capitalize; margin-right: 20px" href="#">User: <?=$_SESSION["username"]?></a>
                 <a href="help.php">Help</a>
                 <a href="logout.php" class="signup-link">Log Out</a>
             <?php else: ?>
