@@ -1,3 +1,3 @@
 <?php
 
-echo "<h1>BOooommmMMMMM!</h1>";
+include __DIR__ . "/templates/addcard.html.php";

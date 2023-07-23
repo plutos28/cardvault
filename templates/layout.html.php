@@ -10,6 +10,7 @@
         <?php include './css/style.css' ?>
     </style>
     <script src="https://unpkg.com/htmx.org@1.9.3"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.9"></script>
     <title><?=$title?> - CardVault</title>
 </head>
 <body>
