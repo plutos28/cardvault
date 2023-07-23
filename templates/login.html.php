@@ -5,8 +5,8 @@
         <label for="username">Username</label><br>
         <input type="text" name="username" id="username"><br>
 
-        <label for="password1">Password</label><br>
-        <input type="password" name="password1" id="password1"><br>
+        <label for="password">Password</label><br>
+        <input type="password" name="password" id="password"><br>
         <button type="submit">Log In</button>
     </form>
 </div>

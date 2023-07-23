@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $title = "Help";
 
 ob_start();

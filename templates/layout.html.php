@@ -17,9 +17,14 @@
             <a href="index.php" class="brand-link">CardVault</a>
         </div>
         <div class="nav-right-side nav-spacing">
-            <a href="help.php">Help</a>
-            <a href="login.php" class="login-link">Log In</a>
-            <a href="signup.php" class="signup-link">Sign Up</a>
+            <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]) : ?>
+                <a href="help.php">Help</a>
+                <a href="logout.php" class="signup-link">Log Out</a>
+            <?php else: ?>
+                <a href="help.php">Help</a>
+                <a href="login.php" class="login-link">Log In</a>
+                <a href="signup.php" class="signup-link">Sign Up</a>
+            <?php endif; ?>
         </div>
 
     </nav>
