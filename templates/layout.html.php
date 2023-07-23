@@ -9,7 +9,7 @@
         <?php include './css/normalize.css'?>
         <?php include './css/style.css' ?>
     </style>
-    <title><?=$title?> CardVault</title>
+    <title><?=$title?> - CardVault</title>
 </head>
 <body>
     <nav>
