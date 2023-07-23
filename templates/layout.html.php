@@ -9,6 +9,7 @@
         <?php include './css/normalize.css'?>
         <?php include './css/style.css' ?>
     </style>
+    <script src="https://unpkg.com/htmx.org@1.9.3"></script>
     <title><?=$title?> - CardVault</title>
 </head>
 <body>
