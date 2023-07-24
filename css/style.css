@@ -245,3 +245,34 @@ h1 {
 	0% {transform: scale(1);}
 	100% {transform: scale(0.9);}
 } 
+
+.add-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-modal .modal-close-button {
+    background: none;
+    border: none;
+    align-self: end;
+}
+
+.add-modal .add-card-button {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    width: 400px;
+    background-color: #7700ff;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    border-radius: 16px;
+    margin-left: 40px;
+    text-decoration: none;
+    font-size: 28px;
+    margin-top: 20px;
+    cursor: pointer;
+}
