@@ -252,6 +252,10 @@ h1 {
     align-items: center;
 }
 
+.add-modal h1 {
+    font-size: 28px;
+}
+
 .add-modal .modal-close-button {
     background: none;
     border: none;
@@ -259,7 +263,6 @@ h1 {
 }
 
 .add-modal .add-card-button {
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -275,4 +278,27 @@ h1 {
     font-size: 28px;
     margin-top: 20px;
     cursor: pointer;
+}
+
+.add-modal label {
+    font-size: 20px;
+    color: #788086;
+}
+
+.add-modal input {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 8px 0 8px 0;
+    font-size: 20px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+.add-modal input:nth-of-type(4) {
+    margin-bottom: 0;
+}
+
+.add-modal form {
+    display: flex;
+    flex-direction: column;
 }

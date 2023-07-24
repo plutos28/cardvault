@@ -6,19 +6,19 @@
 		</button>
 		<h1>Add Credit Card Details</h1>
 		<form class="modal-form" action="addcard.php" method="post">
-			<label for="cardnumber">Card Number</label><br>
-	        <input type="text" name="cardnumber" id="cardnumber"><br>
+			<label for="cardnumber">Card Number</label>
+	        <input type="text" name="cardnumber" id="cardnumber">
 
-	        <label for="cardholder_name">cardholder_name</label><br>
-	        <input type="cardholder_name" name="cardholder_name" id="cardholder_name"><br>
+	        <label for="cardholder_name">Cardholder Name</label>
+	        <input type="cardholder_name" name="cardholder_name" id="cardholder_name">
 
 	        <!-- CVV is specific to visa/mastercard? (change to security code or something and say something like Security Code (CVV/CVC)) -->
-	        <label for="cvv">CVV</label><br>
-	        <input type="cvv" name="cvv" id="cvv"><br>
+	        <label for="cvv">CVV</label>
+	        <input type="cvv" name="cvv" id="cvv">
 
 
-	        <label for="expiration_date">Expiration Date(MM/YY)</label><br>
-	        <input type="expiration_date" name="expiration_date" id="expiration_date"><br>
+	        <label for="expiration_date">Expiration Date(MM/YY)</label>
+	        <input type="expiration_date" name="expiration_date" id="expiration_date">
 
 	        <input type="hidden" name="user_id" value="<?=$_SESSION['id']?>">
 
