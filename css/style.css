@@ -311,6 +311,7 @@ main {
 
 .vault {
     width: 100%;
+    margin-bottom: 80px;
 }
 
 .vault .vault-header {
