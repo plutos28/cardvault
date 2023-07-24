@@ -302,3 +302,42 @@ h1 {
     display: flex;
     flex-direction: column;
 }
+
+main {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 8%;
+}
+
+.vault {
+    width: 100%;
+}
+
+.vault .vault-header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top: 11px;
+}
+
+.vault h1 {
+    font-size: 42px;
+}
+
+.vault-cards {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 40px;
+}
+
+.vault-card {
+    padding: 10px;
+    font-size: 27px;
+    width: 450px;
+    /* border: 1px solid black; */
+    border-radius: 8px;
+    /* box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px; */
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
