@@ -17,8 +17,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         # encrypt all the data as it goes into the database, note that encrypting needs a key, so we'll have to generate real keys later on
         $sql = "DELETE FROM `cardvault`.`carddetails` WHERE `carddetails`.`id` = :card_id";
 
-        // DELETE FROM carddetails WHERE `carddetails`.`id` = 6"
-
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(":card_id", $card_id);
         $stmt->execute();

@@ -16,7 +16,7 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 
-    $cards = $stmt->fetchAll();
+    $cards = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 } catch(PDOException $e) {
     $output = "Unable to connect to the database server: " . 
