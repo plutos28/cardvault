@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = trim($_POST["username"]);
             $password = trim($_POST["password"]);
 
-            $sql = "SELECT id, username, password FROM user WHERE username = :username";
+            $sql = "SELECT id, username, password, user_key FROM customer WHERE username = :username";
 
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":username", $username);
@@ -31,6 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     $id = $row["id"];
                     $username = $row["username"];
                     $hashed_password = $row["password"];
+                    $user_key = $row["user_key"];
 
                     if(password_verify($password, $hashed_password)) {
                         session_start(); 
@@ -39,6 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION["id"] = $id;
                         $_SESSION["username"] = $username;
                         $_SESSION["merchant"] = false;
+                        $_SESSION["user_key"] = $user_key;
 
                         header("location: index.php");
                     }

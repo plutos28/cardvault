@@ -23,11 +23,13 @@ try {
     $user_id = "";
 
 
-    $sql = "SELECT id, AES_DECRYPT(`carddetails`.`cardnumber`, 'secret') AS `cardnumber`, AES_DECRYPT(`carddetails`.`cardholder_name`, 'secret') AS `cardholder_name`, AES_DECRYPT(`carddetails`.`cvv`, 'secret') AS `cvv`, AES_DECRYPT(`carddetails`.`expiration_date`, 'secret') AS `expiration_date` FROM `carddetails` WHERE AES_DECRYPT(`carddetails`.`user_id`, 'secret') = :user_id";
+    $sql = "SELECT id, AES_DECRYPT(`carddetails`.`cardnumber`, :user_key) AS `cardnumber`, AES_DECRYPT(`carddetails`.`cardholder_name`, :user_key) AS `cardholder_name`, AES_DECRYPT(`carddetails`.`cvv`, :user_key) AS `cvv`, AES_DECRYPT(`carddetails`.`expiration_date`, :user_key) AS `expiration_date` FROM `carddetails` WHERE AES_DECRYPT(`carddetails`.`user_id`, :user_key) = :user_id";
 
 
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(":user_id", $_SESSION['id']);
+    $stmt->bindValue(":user_key", $_SESSION['user_key']);
+
     $stmt->execute();
 
     $cards = $stmt->fetchAll();

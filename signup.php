@@ -15,15 +15,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = "";
         $password_confirmation = "";
 
-        // for now, just trim the values and use them outright, no validation and error checking for now
         $username = trim($_POST["username"]);
         $password = trim($_POST["password1"]);
         $password = password_hash($password, PASSWORD_DEFAULT);
+        $user_key = hash("sha256", $password);
 
-        $sql = "INSERT into `user` (username, password) VALUES (:username, :password)";
+        $sql = "INSERT into `customer` (username, password, user_key) VALUES (:username, :password, :user_key)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(":username", $username);
         $stmt->bindValue(":password", $password);
+        $stmt->bindValue(":user_key", $user_key);
         $stmt->execute();
 
         header("location: login.php");
