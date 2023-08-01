@@ -38,11 +38,41 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION["loggedin"] = true;
                         $_SESSION["id"] = $id;
                         $_SESSION["username"] = $username;
+                        $_SESSION["merchant"] = false;
 
                         header("location: index.php");
                     }
                 }
+            } else {
+                // if no users with that username and password check for merchants
+                $sql = "SELECT id, username, password FROM merchant WHERE username = :username";
+
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindValue(":username", $username);
+                $stmt->execute();
+
+                if($stmt->rowCount() == 1) { 
+                    if($row = $stmt->fetch()) {
+                        $id = $row["id"];
+                        $username = $row["username"];
+                        $hashed_password = $row["password"];
+    
+                        if(password_verify($password, $hashed_password)) {
+                            session_start(); 
+    
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["username"] = $username;
+                            $_SESSION["merchant"] = true;
+    
+                            header("location: index.php");
+                        }
+                    }
+                }
+    
             }
+
+
         }
     } catch(PDOException $e) {
         $output = "Unable to connect to the database server: " . 

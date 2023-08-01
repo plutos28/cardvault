@@ -1,7 +1,6 @@
 <div class="form-block">
-    <a href="merchantsignup.php" class="merchant-signup-link">Merchant Sign Up</a>
-    <h1>Sign up for CardVault account</h1>
-    <h2>Enter your details between to get a CardVault account. Soon you can store your credit card information with CardVault</h2>
+    <h1>Sign up for CardVault Merchant Account</h1>
+    <h2>Enter your details between to get a CardVault merchant account. Soon you can store your credit card information with CardVault</h2>
     <form action="" method="post">
         <label for="username">Username</label><br>
         <input type="text" name="username" id="username"><br>

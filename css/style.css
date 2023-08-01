@@ -71,6 +71,7 @@ h1 {
     /* box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px; */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     border-radius: 14px;
+    margin-bottom: 40px;
 }
 
 .form-block form {
@@ -388,3 +389,10 @@ main {
 .vault .card-modifiers .delete-btn {
     background-color: #d4442d;
 } */
+
+.merchant-signup-link {
+    align-self: end;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 22px;
+}

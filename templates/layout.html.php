@@ -20,11 +20,15 @@
         </div>
         <div class="nav-right-side nav-spacing">
             <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]) : ?>
-                <a style="text-decoration: underline; text-transform: capitalize; margin-right: 20px" href="#">Customer: <?=$_SESSION["username"]?></a>
-                <a href="help.php">Help</a>
+                <?php if($_SESSION["merchant"]) : ?>
+                <a style="text-decoration: underline; text-transform: capitalize; margin-right: 20px" href="#">Merchant: <?=$_SESSION["username"]?></a>
+                <?php else: ?>
+                    <a style="text-decoration: underline; text-transform: capitalize; margin-right: 20px" href="#">Customer: <?=$_SESSION["username"]?></a>
+                <?php endif; ?>
+                <!-- <a href="help.php"></a> -->
                 <a href="logout.php" class="signup-link">Log Out</a>
             <?php else: ?>
-                <a href="help.php">Help</a>
+                <!-- <a href="help.php">Help</a> -->
                 <a href="login.php" class="login-link">Log In</a>
                 <a href="signup.php" class="signup-link">Sign Up</a>
             <?php endif; ?>

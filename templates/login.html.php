@@ -1,6 +1,6 @@
 <div class="form-block">
     <h1>Log In</h1>
-    <h2>Enter your details between to get a cardVault aaccount. Soon you can safely store your credit card details with us.</h2>
+    <h2>Enter your details between to login into your CardVault account. Soon you can store your cards with us.</h2>
     <form action="" method="post">
         <label for="username">Username</label><br>
         <input type="text" name="username" id="username"><br>
