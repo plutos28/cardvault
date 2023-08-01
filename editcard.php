@@ -23,16 +23,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $cardholder_name = trim($_POST["cardholder_name"]);
         $cvv = trim($_POST["cvv"]);
         $expiration_date = trim($_POST["expiration_date"]);
+        $card_id = trim($_POST["card_id"]);
 
-        # encrypt all the data as it goes into the database, note that encrypting needs a key, so we'll have to generate real keys later on
-        $sql = "INSERT INTO `cardvault`.`carddetails` (`cardnumber`, `cardholder_name`, `cvv`, `expiration_date`, `user_id`) VALUES(AES_ENCRYPT(:cardnumber, 'secret'), AES_ENCRYPT(:cardholder_name, 'secret'), AES_ENCRYPT(:cvv, 'secret'), AES_ENCRYPT(:expiration_date, 'secret'), AES_ENCRYPT(:user_id, 'secret'))";
+        $sql = "UPDATE `cardvault`.`carddetails` SET `cardnumber`=AES_ENCRYPT(:cardnumber, 'secret'), `cardholder_name`=AES_ENCRYPT(:cardholder_name, 'secret'), `cvv`=AES_ENCRYPT(:cvv, 'secret'), `expiration_date`=AES_ENCRYPT(:expiration_date, 'secret') WHERE id=:card_id";
+        // $sql = "INSERT INTO `cardvault`.`carddetails` (`cardnumber`, `cardholder_name`, `cvv`, `expiration_date`, `user_id`) VALUES(AES_ENCRYPT(:cardnumber, 'secret'), AES_ENCRYPT(:cardholder_name, 'secret'), AES_ENCRYPT(:cvv, 'secret'), AES_ENCRYPT(:expiration_date, 'secret'), AES_ENCRYPT(:user_id, 'secret'))";
 
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(":cardnumber", $cardnumber);
         $stmt->bindValue(":cardholder_name", $cardholder_name);
         $stmt->bindValue(":cvv", $cvv);
         $stmt->bindValue(":expiration_date", $expiration_date);
-        $stmt->bindValue(":user_id", $user_id);
+        $stmt->bindValue(":card_id", $card_id);
         $stmt->execute();
 
         header("location: cardvault.php");

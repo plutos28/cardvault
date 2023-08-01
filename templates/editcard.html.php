@@ -21,6 +21,7 @@
 	        <input type="expiration_date" name="expiration_date" id="expiration_date"  value="<?=$card["expiration_date"]?>">
 
 	        <input type="hidden" name="user_id" value="<?=$_SESSION['id']?>">
+	        <input type="hidden" name="card_id" value="<?=$card["id"]?>">
 
             <button class="add-card-button" _="on click trigger closeModal" type="submit">
             Submit</button>
