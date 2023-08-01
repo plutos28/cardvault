@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $username = trim($_POST["username"]);
         $password = trim($_POST["password1"]);
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        $password = hash("sha256", $password);
         $user_key = hash("sha256", $password);
 
         $sql = "INSERT into `customer` (username, password, user_key) VALUES (:username, :password, :user_key)";

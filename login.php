@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     $hashed_password = $row["password"];
                     $user_key = $row["user_key"];
 
-                    if(password_verify($password, $hashed_password)) {
+                    if(hash("sha256", $password) == $hashed_password) {
                         session_start(); 
 
                         $_SESSION["loggedin"] = true;
@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         $username = $row["username"];
                         $hashed_password = $row["password"];
     
-                        if(password_verify($password, $hashed_password)) {
+                        if(hash("sha256", $password) == $hashed_password) {
                             session_start(); 
     
                             $_SESSION["loggedin"] = true;

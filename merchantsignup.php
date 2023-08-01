@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // for now, just trim the values and use them outright, no validation and error checking for now
         $username = trim($_POST["username"]);
         $password = trim($_POST["password1"]);
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        $password = hash("sha256", $password);
 
         $sql = "INSERT into `merchant` (username, password) VALUES (:username, :password)";
         $stmt = $pdo->prepare($sql);
