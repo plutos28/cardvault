@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2023 at 04:14 PM
+-- Generation Time: Aug 05, 2023 at 11:58 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -41,19 +41,39 @@ CREATE TABLE `carddetails` (
 --
 
 INSERT INTO `carddetails` (`id`, `cardnumber`, `cardholder_name`, `cvv`, `expiration_date`, `user_id`) VALUES
-(1, 0xd03f5fb41af26eca0e54563a242657c440cbbf790b8073b4df503acc4ff1495e, 0x90f8175ba8c00333e6273deb29a912aa, 0x569385dae62cc1c822c2576417e0300e, 0x231f1885757174e626d0778aac6c62c0, 0x436d62ff896cba2aaa326c2587dd8212),
-(3, 0xe6d97ced28138463a2fc802ea6801caf, 0xbdcb5b798b17014d1940793ebbe17f94, 0xa6474a2e8ddb1f659d59c4a28bc839cc, 0xc48df9299f1db9e6253f436cfe068262, 0x436d62ff896cba2aaa326c2587dd8212),
-(4, 0x5a4539e4f9655bdf5cc8ad528025995040cbbf790b8073b4df503acc4ff1495e, 0x7fb166e5ee50dba7dc35b5b6e81e5b29, 0xae78d3a67fd5f00b0065b852dcdc15e5, 0x4b721ff93a35f7d257ddc3023f856621, 0x436d62ff896cba2aaa326c2587dd8212),
-(5, 0x6cc513e57040eef8c65c5ccabc2fe46d15ce3f6da472c4fc235d488423649636, 0x6e9b5beb25838d17a39f7253a28f0c32, 0x41579e3d233189c2e2c3af45c10c96c5, 0x171a852d8eea5030612369600356bbd1, 0xbf57537cb75950bc03ffb0d99994bc68),
-(6, 0xdc87eaeda65ea8162ba0c78769a11472, 0x414f7d19f6ae695ce24e5ac0c5cee950, 0x41579e3d233189c2e2c3af45c10c96c5, 0x171a852d8eea5030612369600356bbd1, 0x436d62ff896cba2aaa326c2587dd8212);
+(18, 0x244cc2c77d844f0a18cb9a03ca7b9cf2, 0xcec6a83e8e5a26cea71e020bee7c2a10, 0x547425327416323b2dcd93ee4d904c69, 0xc5cf94977dc9cbd346b30a7162c44cca, 0xf69208157bf094dbfdf670f8a9cd741b),
+(19, 0x4bc7d0f9d386d4bdca1a64d453371a07, 0xf04f1e8739785f2f0eee26064724d989, 0xd754c5bfc4fcb28a0da5586caf17969b, 0x6a427464016c5bf4e10f310c23649115, 0x49f61f72cc9cd50270a1728d82af6a52);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `customer`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL,
+  `username` text NOT NULL,
+  `password` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `user_key` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `username`, `password`, `created_at`, `user_key`) VALUES
+(6, 'jake', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '2023-08-01 08:39:26', '173af653133d964edfc16cafe0aba33c8f500a07f3ba3f81943916910c257705'),
+(8, 'victor', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '2023-08-01 08:48:10', '173af653133d964edfc16cafe0aba33c8f500a07f3ba3f81943916910c257705'),
+(9, 'lominyo', 'e839f31f710230e7775c2683a766136fb8033195bfde0bb9ef3248372876cb1e', '2023-08-01 09:37:15', '00324781e3be541b292e2bee85833620a54ab95ea613ba7604e5952a7298cfce');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `merchant`
+--
+
+CREATE TABLE `merchant` (
   `id` int(11) NOT NULL,
   `username` text NOT NULL,
   `password` text NOT NULL,
@@ -61,12 +81,12 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `merchant`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'victor', '$2y$10$PDOelMMQFsrHfQeMiA0nF.7y7tXbVVEnJm3.yo5gk78XW02CMDPkK', '2023-07-24 11:20:24'),
-(2, 'jane', '$2y$10$PzD.acn//RRye1TJ0fbVfOymNk56ncnc.Za92zlgFdBbKSgwTlOei', '2023-07-24 16:00:05');
+INSERT INTO `merchant` (`id`, `username`, `password`, `created_at`) VALUES
+(4, 'merchant2', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '2023-08-01 08:45:32'),
+(5, 'merchant', 'e839f31f710230e7775c2683a766136fb8033195bfde0bb9ef3248372876cb1e', '2023-08-01 09:38:52');
 
 --
 -- Indexes for dumped tables
@@ -79,11 +99,17 @@ ALTER TABLE `carddetails`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `customer`
 --
-ALTER TABLE `user`
+ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`) USING HASH;
+
+--
+-- Indexes for table `merchant`
+--
+ALTER TABLE `merchant`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -93,13 +119,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `carddetails`
 --
 ALTER TABLE `carddetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `customer`
 --
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `customer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `merchant`
+--
+ALTER TABLE `merchant`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
